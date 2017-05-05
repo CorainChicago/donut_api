@@ -1,8 +1,8 @@
-== Donut Api
+# Donut Api
 
 This is a practice activity for setting up a Rails API. 
 
-#Resources to Use
+# Resources to Use
   *Rails 5.1.0
   *Postgres Database
   *Devise Gem for User

@@ -5,7 +5,8 @@ This is a practice activity for setting up a Rails API.
 # Resources to Use
   *Rails 5.1.0
   *Postgres Database
-  *Devise Gem for User [https://github.com/lynndylanhurley/devise_token_auth]
+  *Devise and Simple Token Authentication[https://github.com/gonzalo-bulnes/simple_token_authentication]  
+
   *Rspec for tests
   *Google Api for map
 

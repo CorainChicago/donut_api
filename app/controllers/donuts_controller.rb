@@ -1,4 +1,6 @@
 class DonutsController < ApplicationController 
+  protect_from_forgery with: :null_session,
+      if: Proc.new { |c| c.request.format =~ %r{application/json} }
   before_action :set_donut, only: [:show, :edit, :update, :destroy]
 
   # GET /donuts
@@ -69,6 +71,6 @@ class DonutsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def donut_params
-      params.require(:donut).permit(:name, :description, :type, :shop_id, :review)
+      params.require(:donut).permit(:name, :description, :type_of_donut, :shop_id, :review)
     end
 end

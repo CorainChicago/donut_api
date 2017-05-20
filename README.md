@@ -35,4 +35,10 @@ This is a practice activity for setting up a Rails API.
 
   curl -H "X-User-Email: test@example.com2" -H "X-User-Token:hmKxawSKxYfWdxk5LzK" --data "donut[name]=test&donut[description]=Donut has a creamy filling&donut[type_of_donut]=Yeast&donut[shop_id]=&donut[review]=This was worth the calories" http://localhost:3000/donuts 
 
+  Get Donuts
+
+  curl -H "X-User-Email: test@example.com2" -H "X-User-Token:hmKxawSKxYfWdxk5LzK"  http://localhost:3000/donuts
+
+
+
 

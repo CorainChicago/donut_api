@@ -7,11 +7,25 @@ class DonutsController < ApplicationController
   # GET /donuts.json
   def index
     @donuts = Donut.all
+    respond_to do |format|
+      if format.json
+        render json: @donuts 
+      else
+        @donuts
+      end
+    end
   end
 
   # GET /donuts/1
   # GET /donuts/1.json
   def show
+    respond_to do |format|
+      if format.json
+        render json: @donut 
+      else
+        @donut
+      end
+    end
   end
 
   # GET /donuts/new

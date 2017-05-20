@@ -17,9 +17,8 @@ class SessionsController < Devise::SessionsController
         render json: {
           message:    'Logged in',
           auth_token: @user.authentication_token
-        }
-        # ,
-        # status: HTTP_OK
+        },
+        status: HTTP_OK
       }
     end
   end
@@ -34,9 +33,8 @@ class SessionsController < Devise::SessionsController
         format.json {
           render json: {
             message: 'Logged out successfully.'
-           }
-           # , 
-           # status: HTTP_OK
+           } , 
+           status: HTTP_OK
         }
       end
     else
@@ -44,9 +42,8 @@ class SessionsController < Devise::SessionsController
         format.json {
           render json: {
             message: 'Failed to log out. User must be logged in.'
-           }
-           # , 
-           # status: HTTP_UNAUTHORIZED
+          },
+          status: HTTP_UNAUTHORIZED
         }
       end
     end
@@ -67,7 +64,8 @@ class SessionsController < Devise::SessionsController
       # actually stored in the session and a token is needed
       # for every request. If you want the token to work as a
       # sign in token, you can simply remove store: false.
-      sign_in user, store: false
+      current_user = user
+      sign_in user
     end
   end
 end

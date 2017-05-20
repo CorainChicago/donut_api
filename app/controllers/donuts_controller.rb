@@ -1,5 +1,5 @@
 class DonutsController < ApplicationController 
-  protect_from_forgery with: :null_session,
+  protect_from_forgery with: :exception,
       if: Proc.new { |c| c.request.format =~ %r{application/json} }
   before_action :set_donut, only: [:show, :edit, :update, :destroy]
 
@@ -9,7 +9,7 @@ class DonutsController < ApplicationController
     @donuts = Donut.all
     respond_to do |format|
       if format.json
-        render json: @donuts 
+        render json: @donuts
       else
         @donuts
       end
@@ -41,11 +41,12 @@ class DonutsController < ApplicationController
   # POST /donuts.json
   def create
     @donut = Donut.new(donut_params)
+    # @donut.user_id = current_user.id
 
     respond_to do |format|
       if @donut.save
         format.html { redirect_to @donut, notice: 'Donut was successfully created.' }
-        format.json { render :show, status: :created, location: @donut }
+        format.json {render json: @donut, status: :HTTP_OK}
       else
         format.html { render :new }
         format.json { render json: @donut.errors, status: :unprocessable_entity }

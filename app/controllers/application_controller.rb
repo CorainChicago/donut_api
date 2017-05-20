@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception
   protect_from_forgery with: :exception
 
+
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
@@ -18,7 +19,23 @@ class ApplicationController < ActionController::Base
   end
 
   def set_user
+    byebug
     @user = current_user
+  end
+
+  def set_current_user_from_token
+    byebug
+    user_token = params[:user_token].presence
+    user       = user_token && User.find_by_authentication_token(user_token.to_s)
+
+    if user
+      # Notice we are passing store false, so the user is not
+      # actually stored in the session and a token is needed
+      # for every request. If you want the token to work as a
+      # sign in token, you can simply remove store: false.
+      current_user = user
+      sign_in user
+    end
   end
 
 end

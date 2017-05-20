@@ -2,12 +2,12 @@ class RegistrationsController < Devise::RegistrationsController
   respond_to :json
   skip_before_action :verify_authenticity_token, if: :json_request?
 
-  acts_as_token_authentication_handler_for User
+  # acts_as_token_authentication_handler_for User
   # skip_before_action :authenticate_entity_from_token!, only: [:create]
   # skip_before_action :authenticate_entity!, only: [:create]
 
-  skip_before_action :authenticate_scope!
-  append_before_action :authenticate_scope!, only: [:destroy]
+  # skip_before_action :authenticate_scope!
+  # append_before_action :authenticate_scope!, only: [:destroy]
 
   def create
     build_resource(sign_up_params)

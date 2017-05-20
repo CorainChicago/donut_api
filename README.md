@@ -28,16 +28,16 @@ This is a practice activity for setting up a Rails API.
 
   Login User
 
-  curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" --data '{"user": {"email": "test@email.com2", "password": "password"}}' http://localhost:3000/login
+  curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" --data '{"user": {"email": "test@email.com45", "password": "password"}}' http://localhost:3000/login
 
 
   Create Donut
 
-  curl -H "X-User-Email: test@example.com2" -H "X-User-Token:hmKxawSKxYfWdxk5LzK" --data "donut[name]=test&donut[description]=Donut has a creamy filling&donut[type_of_donut]=Yeast&donut[shop_id]=&donut[review]=This was worth the calories" http://localhost:3000/donuts 
+ curl -H "X-User-Email: test@example.com45" -H "X-User-Token:5895fe7d866e9d0bcd8c"  --data "donut[name]=test&donut[description]=Donut has a creamy filling&donut[type_of_donut]=Yeast&donut[shop_id]=&donut[review]=This was worth the calories" http://localhost:3000/donuts 
 
   Get Donuts
 
-  curl -H "X-User-Email: test@example.com2" -H "X-User-Token:hmKxawSKxYfWdxk5LzK"  http://localhost:3000/donuts
+  curl -H "X-User-Email: test@example.com2" -H "X-User-Token:1aa58d956832d9570eeffd794a1dbb678684b6ba5d87e05eacd13258c8d1ad12"  http://localhost:3000/donuts
 
 
 

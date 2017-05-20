@@ -3,8 +3,8 @@ class RegistrationsController < Devise::RegistrationsController
   skip_before_action :verify_authenticity_token, if: :json_request?
 
   acts_as_token_authentication_handler_for User
-  skip_before_action :authenticate_entity_from_token!, only: [:create]
-  skip_before_filter :authenticate_entity!, only: [:create]
+  # skip_before_action :authenticate_entity_from_token!, only: [:create]
+  # skip_before_action :authenticate_entity!, only: [:create]
 
   skip_before_action :authenticate_scope!
   append_before_action :authenticate_scope!, only: [:destroy]
@@ -16,7 +16,7 @@ class RegistrationsController < Devise::RegistrationsController
       message = "Successfully created new account for email #{sign_up_params[:email]}."
     else
       clean_up_passwords resource
-      # status = HTTP_INTERNAL_SERVER_ERROR
+      status = HTTP_INTERNAL_SERVER_ERROR
       message = "Failed to create new account for email #{sign_up_params[:email]}."
     end
 
@@ -38,7 +38,7 @@ class RegistrationsController < Devise::RegistrationsController
         render json: {
           message: 'Successfully deleted the account.'
          }, 
-         # status: HTTP_OK
+         status: HTTP_OK
       }
     end
   end

@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   end
 
   get 'greetings', to: 'greetings#index', as: 'greetings'
+  resources :donuts
 end
 

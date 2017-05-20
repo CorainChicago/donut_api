@@ -3,7 +3,7 @@ class CreateDonuts < ActiveRecord::Migration[5.0]
     create_table :donuts do |t|
       t.string :name
       t.text :description
-      t.string :type
+      t.string :type_of_donut
       t.integer :shop_id
       t.text :review
 

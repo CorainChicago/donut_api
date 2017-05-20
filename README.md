@@ -19,3 +19,20 @@ This is a practice activity for setting up a Rails API.
   6. Donuts of the same name and same location are grouped together under the Donut Shop
   7. Users can reset their password.
 
+
+  Create User
+
+  curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" --data '{"user": {"email": "test@email.com2", "password": "password"}}' http://localhost:3000/register
+
+
+
+  Login User
+
+  curl -X POST -H "Accept: application/json" -H "Content-Type: application/json" --data '{"user": {"email": "test@email.com2", "password": "password"}}' http://localhost:3000/login
+
+
+  Create Donut
+
+  curl -H "X-User-Email: test@example.com2" -H "X-User-Token:hmKxawSKxYfWdxk5LzK" --data "donut[name]=test&donut[description]=Donut has a creamy filling&donut[type_of_donut]=Yeast&donut[shop_id]=&donut[review]=This was worth the calories" http://localhost:3000/donuts 
+
+

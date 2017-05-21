@@ -57,13 +57,4 @@ class SessionsController < Devise::SessionsController
     request.format.json?
   end
 
-  # def authenticate_user_from_token
-  #   user_token = params[:user_token].presence
-  #   user       = user_token && User.find_by_authentication_token(user_token.to_s)
-
-  #   if user
-  #     return current_user = user
-  #   end
-  # end
-
 end

@@ -41,6 +41,11 @@ This is a practice activity for setting up a Rails API.
 
   curl -H "X-User-Token:efa20f6f5362fdf4864d"  http://localhost:3000/donuts
 
+  
+  Get Donuts from a specific user
+  curl -H "X-User-Token:efa20f6f5362fdf4864d"  http://localhost:3000/donuts?current_user
+  /drip?numbytes=n&duration=s&delay=s&code=code
+
 
 
 

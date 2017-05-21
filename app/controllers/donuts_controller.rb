@@ -8,7 +8,12 @@ class DonutsController < ApplicationController
   # GET /donuts
   # GET /donuts.json
   def index
-    @donuts = Donut.all
+    if current_user_params
+      user_id = set_current_user_from_token.id && User.find_by(email: current_user_params).id
+      @donuts = Donut.find_by(user_id: user_id)
+    else
+      @donuts = Donut.all
+    end
     respond_to do |format|
       if format.json
         render json: @donuts
@@ -89,6 +94,10 @@ class DonutsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def donut_params
       params.require(:donut).permit(:name, :description, :type_of_donut, :shop_id, :review)
+    end
+
+    def current_user_params
+      params.require(:current_user)
     end
 
     def set_current_user_from_token

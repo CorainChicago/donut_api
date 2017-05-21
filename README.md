@@ -14,7 +14,7 @@ This is a practice activity for setting up a Rails API.
   1. User can create a user with a password, login, and logout. 
   2. User can create a new donut and review it
   3. User can see all of their donuts and an average of the donut ratings
-  4. User can share the review with other users.
+  4. User can share the donut review with other users by making it public or private
   5. Donuts display a map of their location.
   6. Donuts of the same name and same location are grouped together under the Donut Shop
   7. Users can reset their password.
@@ -43,8 +43,10 @@ This is a practice activity for setting up a Rails API.
 
   
   Get Donuts from a specific user
-  curl -H "X-User-Token:efa20f6f5362fdf4864d"  http://localhost:3000/donuts?current_user
-  /drip?numbytes=n&duration=s&delay=s&code=code
+  
+  The email address must match the user with the token
+
+  curl -H "X-User-Token:df3416d4db4142121927"  http://localhost:3000/donuts?current_user=test@email.com2
 
 
 

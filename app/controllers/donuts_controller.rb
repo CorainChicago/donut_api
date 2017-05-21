@@ -3,6 +3,7 @@ class DonutsController < ApplicationController
   #     if: Proc.new { |c| c.request.format =~ %r{application/json} }
   protect_from_forgery 
   before_action :set_donut, only: [:show, :edit, :update, :destroy]
+  before_action :set_current_user_from_token
 
   # GET /donuts
   # GET /donuts.json
@@ -94,8 +95,10 @@ class DonutsController < ApplicationController
       user_token = request.headers['HTTP_X_USER_TOKEN'].presence
       user       = user_token && User.find_by_authentication_token(user_token.to_s)
 
-      if user
+      if user != nil
         return user
+      else
+        redirect_to :root
       end
     end
 end

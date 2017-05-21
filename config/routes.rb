@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     delete 'delete_account' => 'registrations#destroy', :as => :delete_account
   end
 
-  get 'greetings', to: 'greetings#index', as: 'greetings'
   resources :donuts
 end
 

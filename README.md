@@ -15,8 +15,9 @@ This is a practice activity for setting up a Rails API.
   2. User can create a new donut and review it
   3. User can see all of their donuts and an average of the donut ratings
   4. User can share the donut review with other users by making it public or private
-  5. Donuts display a map of their location.
-  6. Donuts of the same name and same location are grouped together under the Donut Shop
+  ~5. Donuts display a map of their location.~
+  ~6. Donuts of the same name and same location are grouped together under the Donut Shop~
+  5. 
   7. Users can reset their password.
 
 
@@ -33,7 +34,7 @@ This is a practice activity for setting up a Rails API.
 
   Create Donut
 
- curl -H "X-User-Token:efa20f6f5362fdf4864d"  --data "donut[name]=test&donut[description]=Donut has a creamy filling&donut[type_of_donut]=Yeast&donut[shop_id]=&donut[review]=This was worth the calories" http://localhost:3000/donuts 
+ curl -H "X-User-Token:5e1944f1087fafc9a343"  --data "donut[name]=test&donut[description]=Donut has a creamy filling&donut[type_of_donut]=Yeast&donut[shop_id]=3&donut[review]=Yummy delight" http://localhost:3000/donuts 
 
   Get Donuts
 

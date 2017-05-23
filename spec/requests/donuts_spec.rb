@@ -2,9 +2,10 @@ require 'rails_helper'
 
 RSpec.describe "Donuts", type: :request do
   describe "GET /donuts" do
-    it "works! (now write some real specs)" do
+
+    it "redirects when no user token given" do
       get donuts_path
-      expect(response).to have_http_status(200)
+      expect(response).to have_http_status(302)
     end
   end
 end

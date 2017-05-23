@@ -41,26 +41,18 @@ RSpec.describe DonutsController, type: :controller do
   # DonutsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET #index" do
-    it "returns a success response" do
-      donut = Donut.create! valid_attributes
-      get :index, params: {}, session: valid_session
-      expect(response).to be_success
-    end
-  end
 
   describe "GET #show" do
+
+    before(:each) do
+      User.create(email: "test@email.com", password: "password")
+      @token = post "create", params: {email: "test@email.com", password: "password"}
+    end
+
     it "returns a success response" do
       donut = Donut.create! valid_attributes
-      get :show, params: {id: donut.to_param}, session: valid_session
-      expect(response).to be_success
-    end
-  end
-
-  describe "GET #new" do
-    it "returns a success response" do
-      get :new, params: {}, session: valid_session
-      expect(response).to be_success
+      get :show, params: {user_token: @token, id: donut.to_param}, session: valid_session
+      expect(response).to be("hi")
     end
   end
 

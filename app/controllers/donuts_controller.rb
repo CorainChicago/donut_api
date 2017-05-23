@@ -8,15 +8,8 @@ class DonutsController < ApplicationController
   # GET /donuts
   # GET /donuts.json
   def index
-
-    @donut = Donut.find_requested_donuts
-    respond_to do |format|
-      if format.json
-        render json: @donuts
-      else
-        @donuts
-      end
-    end
+    @donuts = Donut.find_requested_donuts(set_current_user_from_token, current_user_params)
+    render status: HTTP_OK, json: @donuts
   end
 
   # GET /donuts/1
@@ -24,7 +17,7 @@ class DonutsController < ApplicationController
   def show
     respond_to do |format|
       if format.json
-        render json: @donut 
+        render status: HTTP_OK, json: @donut 
       else
         @donut
       end
@@ -93,7 +86,9 @@ class DonutsController < ApplicationController
     end
 
     def current_user_params
-      params.require(:current_user)
+      if params['current_user']
+        params.require(:current_user)
+      end
     end
 
     def set_current_user_from_token
